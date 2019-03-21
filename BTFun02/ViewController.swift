@@ -8,6 +8,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     
     var count = 0;
+    var check = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,10 +22,20 @@ class ViewController: UIViewController {
             myLabel.text = "I'm Label !";
         }
         
-        if (count != 9) {
-            count += 1;
+        if (!check) {
+            if (count != 9) {
+                count += 1;
+            } else {
+                check = true;
+                count -= 1;
+            }
         } else {
-            count = 0;
+            if (count != 0) {
+                count -= 1;
+            } else {
+                check = false;
+                count += 1;
+            }
         }
         
         countLabel.text = String(count);
@@ -37,10 +48,20 @@ class ViewController: UIViewController {
             myLabel2.text = "I'm Label 2 !";
         }
         
-        if (count != 9) {
-            count += 1;
+        if (!check) {
+            if (count != 9) {
+                count += 1;
+            } else {
+                check = true;
+                count -= 1;
+            }
         } else {
-            count = 0;
+            if (count != 0) {
+                count -= 1;
+            } else {
+                check = false;
+                count += 1;
+            }
         }
         
         countLabel.text = String(count);
